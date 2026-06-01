@@ -6,5 +6,7 @@ export async function getWinnersByYear(year: number) {
 	return fetchData<MovieResponse[]>({
 		path: "winnersByYear",
 		queryParams: { year: String(year) },
+		revalidate: 60 * 30,
+		tag: "winnersByYear",
 	})
 }
