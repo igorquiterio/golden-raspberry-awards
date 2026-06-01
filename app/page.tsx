@@ -10,7 +10,7 @@ import { WinnersByYearSkeleton } from "./components/winnersByYear/skeleton"
 
 export default function Home() {
 	return (
-		<div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+		<div className="grid grid-cols-2 gap-4 max-xl:grid-cols-1">
 			<Suspense fallback={<MultipleWinnersSkeleton />}>
 				<MultipleWinners />
 			</Suspense>
