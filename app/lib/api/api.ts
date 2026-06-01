@@ -6,7 +6,10 @@ async function getUrl(
 	path: string,
 	queryParams?: Record<string, string>,
 ): Promise<URL> {
-	const url = new URL(path.replace(/^\//, ""), `${API_BASE}/`)
+	const normalizedPath = path.replace(/^\//, "")
+	const url = normalizedPath
+		? new URL(normalizedPath, `${API_BASE}/`)
+		: new URL(API_BASE)
 
 	if (queryParams) {
 		for (const [key, value] of Object.entries(queryParams)) {

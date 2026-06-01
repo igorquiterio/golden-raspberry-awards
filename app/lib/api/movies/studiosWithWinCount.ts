@@ -5,7 +5,7 @@ import type { StudiosWithWinCountResponse } from "../api-types"
 export async function getStudiosWithWinCount() {
 	return fetchData<StudiosWithWinCountResponse>({
 		path: "studiosWithWinCount",
-		revalidate: 60 * 30,
+		revalidate: 60 * 60 * 24,
 		tag: "studiosWithWinCount",
 	})
 }

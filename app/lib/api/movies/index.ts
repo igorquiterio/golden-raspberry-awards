@@ -1,4 +1,3 @@
-export { getMovieById } from "./id"
 export { getMovies } from "./list"
 export { getMaxMinWinIntervalForProducers } from "./maxMinWinIntervalForProducers"
 export { getStudiosWithWinCount } from "./studiosWithWinCount"

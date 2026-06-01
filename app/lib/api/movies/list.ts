@@ -10,5 +10,7 @@ export async function getMovies(params: {
 }) {
 	return fetchData<PageMovieResponse>({
 		queryParams: await toQueryParams(params),
+		revalidate: 60 * 60,
+		tag: "movies",
 	})
 }

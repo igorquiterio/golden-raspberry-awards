@@ -5,7 +5,7 @@ import type { MaxMinWinIntervalForProducersResponse } from "../api-types"
 export async function getMaxMinWinIntervalForProducers() {
 	return fetchData<MaxMinWinIntervalForProducersResponse>({
 		path: "maxMinWinIntervalForProducers",
-		revalidate: 60 * 30,
+		revalidate: 60 * 60 * 24,
 		tag: "maxMinWinIntervalForProducers",
 	})
 }
