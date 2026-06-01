@@ -1,5 +1,3 @@
-"use server"
-
 import type { ApiErrorResponse } from "./api-types"
 
 const API_BASE = "https://challenge.outsera.tech/api/movies"

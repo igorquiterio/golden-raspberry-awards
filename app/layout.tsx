@@ -1,11 +1,11 @@
-import type { CSSProperties } from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Inter } from "next/font/google"
+import type { CSSProperties } from "react"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
-import { Header } from "./components/header/header"
-import { PageContainer } from "./components/page-container"
-import { AppSidebar } from "./components/sidebar/sidebar"
+import { Header } from "./components/header"
+import { PageContainer } from "./components/pageContainer"
+import { AppSidebar } from "./components/sidebar"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })

@@ -16,7 +16,7 @@ import {
 
 const navItems = [
 	{ href: "/", label: "Dashboard", icon: LayoutDashboardIcon },
-	{ href: "/list", label: "Lista", icon: ListIcon },
+	{ href: "/list", label: "List", icon: ListIcon },
 ] as const
 
 export function AppSidebar() {

@@ -1,5 +1,3 @@
-"use server"
-
 import { fetchData, toQueryParams } from "../api"
 import type { PageMovieResponse } from "../api-types"
 

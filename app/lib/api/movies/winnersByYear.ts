@@ -1,5 +1,3 @@
-"use server"
-
 import { fetchData } from "../api"
 import type { MovieResponse } from "../api-types"
 

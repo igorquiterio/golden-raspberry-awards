@@ -1,5 +1,3 @@
-"use server"
-
 import { fetchData } from "../api"
 import type { StudiosWithWinCountResponse } from "../api-types"
 

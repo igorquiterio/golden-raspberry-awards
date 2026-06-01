@@ -1,5 +1,3 @@
-"use server"
-
 import { fetchData } from "../api"
 import type { YearsWithMultipleWinnersResponse } from "../api-types"
 
@@ -7,5 +5,7 @@ import type { YearsWithMultipleWinnersResponse } from "../api-types"
 export async function getYearsWithMultipleWinners() {
 	return fetchData<YearsWithMultipleWinnersResponse>({
 		path: "yearsWithMultipleWinners",
+		revalidate: 60 * 5,
+		tag: "yearsWithMultipleWinners",
 	})
 }
