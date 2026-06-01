@@ -1,0 +1,8 @@
+"use server"
+
+export { getMovieById } from "./id"
+export { getMovies } from "./list"
+export { getMaxMinWinIntervalForProducers } from "./maxMinWinIntervalForProducers"
+export { getStudiosWithWinCount } from "./studiosWithWinCount"
+export { getWinnersByYear } from "./winnersByYear"
+export { getYearsWithMultipleWinners } from "./yearsWithMultipleWinners"
