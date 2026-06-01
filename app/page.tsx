@@ -1,6 +1,8 @@
 import { Suspense } from "react"
 import { MultipleWinners } from "./components/multipleWinners"
 import { MultipleWinnersSkeleton } from "./components/multipleWinners/skeleton"
+import { StudiosWithWinners } from "./components/studiosWithWinners"
+import { StudiosWithWinnersSkeleton } from "./components/studiosWithWinners/skeleton"
 
 export default function Home() {
 	return (
@@ -8,8 +10,8 @@ export default function Home() {
 			<Suspense fallback={<MultipleWinnersSkeleton />}>
 				<MultipleWinners />
 			</Suspense>
-			<Suspense fallback={<MultipleWinnersSkeleton />}>
-				<MultipleWinners />
+			<Suspense fallback={<StudiosWithWinnersSkeleton />}>
+				<StudiosWithWinners />
 			</Suspense>
 			<Suspense fallback={<MultipleWinnersSkeleton />}>
 				<MultipleWinners />
