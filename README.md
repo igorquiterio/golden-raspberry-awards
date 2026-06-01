@@ -124,6 +124,23 @@ Com **Server Components + `fetch` cacheável**:
 
 O ganho principal é **menos estado e menos efeitos colaterais no cliente**: o carregamento inicial acontece no servidor, com cache explícito e loading declarativo via `Suspense`. `useEffect` ainda faz sentido para integrações no browser (eventos, APIs nativas), mas deixa de ser o centro da arquitetura de dados da aplicação.
 
+### Cache do servidor vs. Redux, Zustand e similares
+
+Bibliotecas como **Redux** ou **Zustand** resolvem um problema típico do cliente: manter e sincronizar estado global (dados da API, loading, erro) entre vários componentes depois que tudo já foi hidratado no browser. No modelo SPA clássico, isso costuma ser necessário porque cada tela busca de novo ou compartilha fetch via store.
+
+Com **Server Components** e **cache do `fetch`**, grande parte desse trabalho deixa de existir no cliente:
+
+| Papel | No client store (Redux/Zustand) | Neste projeto |
+|-------|----------------------------------|---------------|
+| Dados da API no dashboard | Copiar resposta para a store, selectors, thunks | `fetch` no servidor + Data Cache do Next |
+| Invalidar / atualizar | Actions, reducers, middlewares | `revalidate`, `tags` ou nova navegação |
+| Lista filtrada | Estado + query na store ou refetch manual | `searchParams` na URL → novo render no servidor |
+| Loading global | Flags `isLoading` na store | `Suspense` por bloco |
+
+Ou seja: o **cache do Next passa a ser a “fonte da verdade” no servidor**, e a **URL** (ex.: filtros em `/list`) substitui muito do que seria estado derivado em uma store. Redux e Zustand continuam úteis quando o estado é genuinamente **client-only** (carrinho, wizard complexo, UI que não mapeia para URL) — mas para **dados remotos de leitura** em App Router, adicionar uma store global costuma ser redundante e aumenta boilerplate sem ganho proporcional.
+
+Neste projeto, a interação que precisa de estado no cliente (busca de vencedores por ano) usa **`useActionState`** + Server Action, não uma store global — o mínimo de estado possível, só onde a UX exige.
+
 ### Implementação e critérios do desafio
 
 Este repositório seguiu a orientação de **não utilizar inteligência artificial** para análise de requisitos e geração de código. A proposta do teste era avaliar competências reais do candidato — leitura da API, decisões de arquitetura, organização do projeto e domínio de React/Next.js — e não a capacidade de montar uma solução a partir de prompts.
